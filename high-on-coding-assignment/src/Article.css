@@ -1,0 +1,25 @@
+.article-div {
+    margin-left: 3%;
+    margin-right: 3%;
+    padding-left: 15px;
+}
+
+
+.article-div h2 {
+    color: #1E83C0;
+    font-weight: 500;
+}
+
+
+.comments-likes-div {
+  display: flex;
+  background-color: #eb8100;
+  color: white;
+  font-weight: bold;
+  
+}
+
+.comments-likes-div p {
+    margin-right: 20px;
+    margin-left: 10px;
+}
