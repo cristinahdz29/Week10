@@ -1,0 +1,11 @@
+.svg-div {
+    fill: white;
+    width: 300px;
+    margin: 0 auto;
+    
+
+}
+
+.svg-div svg {
+    height: 215px;
+}
