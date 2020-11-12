@@ -4,6 +4,7 @@ import Name from './Name'
 import Friends from './Friends'
 import Stepper from './Stepper'
 import News from './News'
+import Stepper2 from './Stepper2'
 
 class App extends Component {
   //render function dictates what the component will display on the screen
@@ -42,6 +43,7 @@ class App extends Component {
           <Name lastName = "Hernandez" firstName = "Ana" />
           <Friends listofFriends = {friends} />
           <Stepper />
+          <Stepper2 />
           <News news = {this.state.news}/>
         </div>
       )
