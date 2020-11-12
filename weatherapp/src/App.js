@@ -1,12 +1,9 @@
 import React, { Component } from "react";
 import Content from "./Components/Content";
+import Favorites from "./Components/Favorites";
 import Header from "./Components/Header";
 import axios from "axios";
-import Form from "react-bootstrap/Form";
-import FormControl from "react-bootstrap/FormControl";
-import Button from "react-bootstrap/Button";
-import Navbar from "react-bootstrap/Navbar";
-import Nav from "react-bootstrap/Nav";
+import { Route } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 class App extends Component {
@@ -16,6 +13,7 @@ class App extends Component {
     this.state = {
       weather: {},
       search: "",
+      favorites: [],
     };
   }
 
@@ -38,6 +36,13 @@ class App extends Component {
     });
   };
 
+  createFavorite = async (city) => {
+    const { data } = await axios.post(`http://localhost:3001/favorites`, {
+      City: city,
+    });
+    console.log(data);
+  };
+
   handleOnChange = (e) => {
     this.setState({
       search: e.target.value,
@@ -57,27 +62,22 @@ class App extends Component {
       <div>
         {/* NAVBAR BOOTSTRAP */}
 
-        <Navbar className="color-nav" variant="light">
-          <Navbar.Brand href="#home">What's The Weather?</Navbar.Brand>
-          <Nav className="mr-auto">
-            <Nav.Link href="#home">Hourly</Nav.Link>
-            <Nav.Link href="#features">10 Day</Nav.Link>
-            <Nav.Link href="#pricing">Weekend</Nav.Link>
-          </Nav>
-          <Form inline>
-            <FormControl
-              type="text"
-              onChange={this.handleOnChange}
-              placeholder="Enter City"
-              className="mr-sm-2"
-            />
-            <Button onClick={this.handleSearch} variant="outline-primary">
-              Search
-            </Button>
-          </Form>
-        </Navbar>
+        <Header
+          handleOnChange={this.handleOnChange}
+          handleSearch={this.handleSearch}
+        />
 
-        <Content weather={this.state.weather} cityName = {this.state.cityName} />
+        <Route
+          component={() => (
+            <Content
+              weather={this.state.weather}
+              cityName={this.state.cityName}
+            />
+          )}
+          path="/"
+          exact
+        />
+        <Route component={Favorites} path="/favorites" />
       </div>
     );
   }
