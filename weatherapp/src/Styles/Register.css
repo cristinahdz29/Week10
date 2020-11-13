@@ -1,0 +1,20 @@
+.register-div {
+  background-color: #bdccff;
+  color: white;
+  margin-left: 10%;
+  margin-right: 10%;
+  text-align: center;
+  font-size: 30px;
+  padding: 97px 0;
+  border-radius: 10px;
+  margin-top: 7%;
+}
+
+.register-div input {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.register-div button {
+  margin-left: 10px;
+}

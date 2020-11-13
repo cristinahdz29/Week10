@@ -5,6 +5,11 @@ import Cloud from "./Cloud";
 
 // Content Class
 class Content extends Component {
+  componentDidMount() {
+    if (!this.props.isLoggedIn) {
+      this.props.history.push("/");
+    }
+  }
   round = (number) => Math.round(number);
 
   render() {

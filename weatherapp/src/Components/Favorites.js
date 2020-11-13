@@ -30,7 +30,9 @@ class Favorites extends Component {
   };
 
   viewFavorites = async () => {
-    const { data } = await Axios.get("http://localhost:3001/favorites");
+    const { data } = await Axios.get(
+      `http://localhost:3001/users/${this.props.userId}/favorites`
+    );
     console.log(data);
     this.setState({
       cities: data,
@@ -39,7 +41,7 @@ class Favorites extends Component {
   };
 
   createFavorite = async (city) => {
-    await Axios.post("http://localhost:3001/favorites", {
+    await Axios.post(`http://localhost:3001/users/${this.props.userId}/favorites`, {
       city: city,
     });
   };
@@ -59,7 +61,11 @@ class Favorites extends Component {
   };
 
   componentDidMount() {
-    this.viewFavorites();
+    if (!this.props.isLoggedIn) {
+      this.props.history.push("/");
+    } else {
+      this.viewFavorites();
+    }
   }
 
   render() {

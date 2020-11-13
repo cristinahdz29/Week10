@@ -1,0 +1,20 @@
+.login-div {
+  background-color: #bdccff;
+  color: white;
+  margin-left: 10%;
+  margin-right: 10%;
+  text-align: center;
+  font-size: 30px;
+  padding: 97px 0;
+  border-radius: 10px;
+  margin-top: 7%;
+}
+
+.login-div input {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.login-div button {
+  margin-left: 10px;
+}
