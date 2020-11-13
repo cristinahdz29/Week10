@@ -1,0 +1,9 @@
+.piechart {
+    margin-top: 5%;
+    width: 25%;
+}
+
+.piechart text {
+    font-size: 10px;
+    fill: white;
+}
